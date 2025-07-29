@@ -1,0 +1,7 @@
+R001|Pizza Palace|555-123-4567|pizzapalace@example.com|Italian
+R002|Burger House|555-234-5678|burgerhouse@example.com|American
+R003|Taco Town|555-345-6789|tacotown@example.com|Mexican
+R004|Sushi Express|555-456-7890|sushiexpress@example.com|Japanese
+R005|Pasta Paradise|555-567-8901|pastaparadise@example.com|Italian
+R006|Salad Garden |123-456-7890|saladgarden@example.com|Salad
+

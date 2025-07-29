@@ -1,0 +1,19 @@
+M001|R001|Pepperoni Pizza|Classic pepperoni pizza with cheese and tomato sauce|12.99
+M002|R001|Vegetable Pizza|Fresh vegetables on a crispy crust|11.99
+M003|R001|Hawaiian Pizza|Ham and pineapple on a cheesy base|13.99
+M004|R001|Garlic Bread|Freshly baked with garlic butter|4.99
+M005|R002|Classic Burger|Beef patty with lettuce, tomato, and cheese|9.99
+M006|R002|Chicken Burger|Grilled chicken with special sauce|8.99
+M007|R002|Veggie Burger|Plant-based patty with fresh vegetables|10.99
+M008|R002|French Fries|Crispy golden fries with salt|3.99
+M009|R003|Beef Taco|Seasoned beef with lettuce and salsa|6.99
+M010|R003|Chicken Quesadilla|Grilled chicken with melted cheese|8.99
+M011|R003|Vegetarian Burrito|Beans, rice, and vegetables wrapped in tortilla|7.99
+M012|R004|California Roll|Crab, avocado, and cucumber|10.99
+M013|R004|Salmon Nigiri|Fresh salmon on rice|12.99
+M014|R004|Tempura Shrimp|Battered and fried shrimp|9.99
+M015|R005|Spaghetti Bolognese|Rich meat sauce over pasta|14.99
+M016|R005|Fettuccine Alfredo|Creamy parmesan sauce|13.99
+M017|R005|Garlic Bread|Italian bread with garlic butter|4.99
+M0018|R006|Caesar Salad |Romaine, parmesan, croutons, caesar dressing|10.99
+

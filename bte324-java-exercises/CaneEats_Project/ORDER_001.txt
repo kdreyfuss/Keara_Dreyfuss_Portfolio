@@ -1,0 +1,26 @@
+ORDER_ID: O001
+CUSTOMER_ID: C001
+CUSTOMER_NAME: John Smith
+CUSTOMER_PHONE: 555-111-2222
+CUSTOMER_EMAIL: john@example.com
+RESTAURANT_ID: R001
+RESTAURANT_NAME: Pizza Palace
+RESTAURANT_PHONE: 555-123-4567
+ORDER_DATE: 2025-04-23 18:30:45
+ORDER_STATUS: Delivered
+-------------------------------
+ITEM: Pepperoni Pizza
+DESCRIPTION: Classic pepperoni pizza with cheese and tomato sauce
+QUANTITY: 2
+PRICE_PER_UNIT: $12.99
+ITEM_TOTAL: $25.98
+-------------------------------
+ITEM: Garlic Bread
+DESCRIPTION: Freshly baked with garlic butter
+QUANTITY: 1
+PRICE_PER_UNIT: $4.99
+ITEM_TOTAL: $4.99
+-------------------------------
+ORDER_SUBTOTAL: $30.97
+TAX (8%): $2.48
+ORDER_TOTAL: $33.45
