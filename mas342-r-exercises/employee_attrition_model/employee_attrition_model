@@ -1,0 +1,157 @@
+---
+title: "Lab 7"
+output: 
+  pdf_document
+---
+
+## Directions: Workout the problems using R markdown.  Hand in both the \*.rmd file and the knitted \*.pdf file. (2 points for correctly submitting)
+
+#### Airbnb Pricing Data
+
+Victoria would like to list her property on Airbnb in Edinburgh, the capitol of Scotland.  In order to price her property competitively, she collects data on listings to analyze the contributing factors of price.  The `AirBnb.csv` data set consists of 10,370 rental listings from Airbnb in Edinburgh for a period from June 25, 2019 to June 24, 2020.   
+
+The variables for each listing are:
+
+* Bathrooms	- Number of bathrooms
+* Bedrooms - Number of bedrooms
+* Beds - Number of beds
+* Accommodates - Number of guests the listing can accommodate
+* Guests	- Number of guests included without an additional fee
+* MinNights - Minimum number of nights required for booking
+* MaxNights - Maximum number of nights the listing can be rented
+* ExtraPeople - Average fee for each additional person in British pounds
+* HostListings - Number of listings the host manages
+* ResponseRate - Average host response rate
+* Deposit - Average security deposit required for booking in British pounds
+* CleaningFee - Average cleaning fee charged in British pounds
+* FeeMissing - A dummy variable that is 1 if the cleaning fee is missing, 0 otherwise
+* Price - Average price of the listing in British pounds.
+
+```{r}
+df = read.csv("https://www.businessregression.com/Data/AirBnb.csv")
+```
+
+Using the Edinburgh Airbnb data file, do the following.  
+
+#### 1. Airbnb Pricing Application:  Backward Elimination
+
+Using the Edinburgh Airbnb data file, do the following.  
+
+ a. Fit a linear regression model using all possible predictor variables.
+
+```{r}
+reg = lm(Price ~ ., data = df)
+summary(reg)
+```
+
+ b. Run backward elimination beginning from the full model in the previous part.
+
+```{r results='hide'}
+
+full = lm(Price ~., data = df)
+BE = step(full)
+```
+
+ c. Specify which variable is eliminated in the first iteration of backward elimination.  How many variables are eliminated in total using this process?
+
+*Guests is eliminated in the first iterations of backward elimination, for a total of one variable eliminated*
+
+ d. Print a model summary of the backward elimination model.
+
+```{r}
+summary(BE)
+```
+
+#### 2. Airbnb Pricing Application:  Forward Selection
+
+Using the Edinburgh Airbnb data file, do the following.  
+
+ a. Fit a linear regression model using only the intercept.
+
+```{r}
+reg2 = lm(Price ~ 1, data = df)
+```
+
+ b. Run forward selection beginning from the model in the previous part.
+
+```{r results='hide'}
+FS = step(reg2, scope = list(upper = full))
+```
+
+ c. Specify which variable is incorporated in the first iteration of forward selection.
+
+*The first variable incorporated in the first iteration of selection is Accomodates*
+
+ d. Print a model summary of the forward selection model.
+
+```{r}
+summary(FS)
+```
+
+#### 3. Airbnb Pricing Application:  Stepwise Regression
+
+Using the Edinburgh Airbnb data file, do the following.  
+
+ a. Run stepwise regression.
+
+```{r results='hide'}
+SW = step(reg2, scope = list(upper = full))
+```
+ 
+ b. Specify which variable is incorporated in the first iteration of the stepwise regression.
+ 
+*The variable incorporate in the first iteration of the regression is accomodates*
+
+ c. Print a model summary of the stepwise regression model.
+
+```{r}
+summary(SW)
+```
+
+ d. Clearly state the difference (if any) between the backwards elimination, forward selection, and the stepwise regression models.
+
+*There is no difference between any of the methods*
+
+#### 4. Airbnb Pricing Application:  Best Subsets Regression 1
+
+Using the Edinburgh Airbnb data file, do the following.  
+
+ a. Run the best subsets method on the data using all predictor variables using the default value of `nvmax`.
+ 
+```{r}
+library(leaps)
+BSR = regsubsets(Price ~ ., data = df)
+```
+
+ b. Plot the results of the best subsets method from part a using $BIC$ as the scale.  Repeat using adjusted $R^2$ as the scale.
+
+```{r}
+par(mfrow=c(1,2))
+plot(BSR)
+plot(BSR, scale = 'adjr2')
+```
+
+ c. Return the best model coefficients with 8 variables.  Use the coef function specifying the best subsets model as the first argument and the number of variables as the second argument.  
+
+```{r}
+coef(BSR,8)
+```
+
+#### 5. Airbnb Pricing Application:  Best Subsets Regression 2
+
+Using the Edinburgh Airbnb data file, do the following.  
+
+ a. Run the best subsets method on the data using all predictor variables using the `nvmax = 13` option to include all possible combinations of predictor variables.
+
+```{r}
+library(leaps)
+BSR2 = regsubsets(Price ~ ., nvmax = 13, data = df)
+```
+
+ b. Plot the results of the best subsets method from part a using $BIC$ as the scale.  Repeat using adjusted $R^2$ as the scale.
+
+```{r}
+par(mfrow= c(1,2))
+plot(BSR2)
+plot(BSR2, scale = 'adjr2')
+```
